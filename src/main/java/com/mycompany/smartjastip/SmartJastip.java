@@ -171,6 +171,19 @@ public class SmartJastip {
                                 daftarBarang[i].rincianPengiriman();
                                 System.out.printf("    Total Estimasi Biaya (Harga + Fee Jastip Rp.50.000): Rp%,.0f%n%n",
                                         daftarBarang[i].hitungTotalBiaya());
+                                
+                                daftarBarang[i].hitungPajakBeaCukai();
+                                
+                                if (daftarBarang[i] instanceof DapatDiinspeksi) {
+                                    DapatDiinspeksi barangInspeksi = (DapatDiinspeksi) daftarBarang[i];
+                                    barangInspeksi.inspeksiKondisi();
+                                }
+                                
+                                if (daftarBarang[i] instanceof DapatDiasuransikan) {
+                                    DapatDiasuransikan barangAsuransi = (DapatDiasuransikan) daftarBarang[i];
+                                    barangAsuransi.klaimGaransi();
+                                }
+                                System.out.println();
                             }
                             
                             System.out.println("    Total Keseluruhan Objek Barang Tersedia: " + BarangJastip.getTotalBarangTerdaftar() + "unit.");
